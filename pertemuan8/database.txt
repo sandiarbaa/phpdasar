@@ -1,0 +1,92 @@
+Database : data yg ada di dalam dbms nya.
+Data : representasi fakta yg ada di dunia nyata.
+DBMS : database management system.
+Contoh DBMS : Oracle, MySQL, SQL Server, PostgreeSQL, MongoDB.
+
+Jenis -Jenis DBMS:
+- Relationals DBMS (RDBMS)
+- Hierarchical DBMS
+- Network DBMS
+- NoSQL DBMS (contohnya MongoDB)
+
+SQL : adalah Bahasa yg digunakan untuk berinteraksi dengan database.
+
+MySQL masuk ke dalam Relationals DBMS, jadi di dalam database nya nanti kita bisa membuat keterhubungan antar datanya/tabelnya.
+
+Tabel di dalam database terdiri dari baris dan kolom.
+Baris / Row disebut record (horizontal).
+Kolom / Column disebut field (vertical).
+
+Contoh Struktur Dari Sebuah Table di Dalam Database :
+Misal di dalam sebuah tabel mahasiswa itu ada beberapa field, dan kalau semua field nya sudah terisi 1 mahasiswa itu bisa disebut sebagai 1 record mahasiswa. Dan setiap field itu punya aturan tersendiri untuk mengisikan setiap datanya, misal ada field yg harus di isi dengan teks, angka, tanggal, dll. Dan aturan-aturan itu akan dimasukkan ketika membuat sebuah database.
+
+Primary Key: Sebuah data, yang dapat merepresentasikan satu baris record secara unik.
+Misal field NIM pada sebuah tabel mahasiswa. Karena field NIM unik, jadi tidak mungkin ada data yg sama di dalam table itu.
+
+Istilah :
+- Field / Column
+- Record / Row
+- Key : Primary Key, Foreign Key
+- Auto Increment
+- Relationship
+- Normalization
+
+Studi Kasus :
+database : phpdasar
+tabel : mahasiswa
+
+Sintaks db di cmd :
+arahkan ke direktori D:/xampp/mysql/bin -> mysql -u root -p
+show databases;
+create database nama_database;
+use nama_database;
+
+create table nama_table (
+	id int primary key auto_increment,
+	nama varchar(100),
+	nim char(10),
+	email varchar(100),
+	prodi varchar(100),
+	gambar varchar(100)
+	);
+
+show tables;
+describe nama_table;
+
+Sintaks SQL :
+insert into nama_table values ('', 'sesuai field', 'sesuai field');
+select * from nama_table; (btw * itu maksudnya semua field di dalam tabel itu).
+
+select nim from mahasiswa;
+select nama, nim from mahasiswa;
+
+select * from mahasiswa where nim='2255201259';
+select nama from mahasiswa where nim="2255201259";
+
+==UPDATE==
+update nama_table set nama_field = 'value' where nama_field = value;
+update mahasiswa set prodi = 'Teknik Informatiika' where nim = '2255201259';
+
+==DELETE==
+delete from mahasiswa where nama_field = value;
+delete from mahasiswa where id = 2; (misal).
+
+drop table nama_table;
+
+drop database nama_database;
+
+
+Ide Struktur Database yg Akan Dibuat :
+id int primary key auto_increment
+nama varchar(100)
+nim varchar(10)
+email varchar(100)
+jurusan varchar(100)
+gambar varchar(100)
+
+FYI Perbedaan CHAR dan VARCHAR dalam sintaks MySQL :
+- Char digunakan untuk menyimpan string dengan panjang tetap, digunakan utk karakter yg tetap seperti no induk mahasiswa
+
+- varchar digunakan untuk menyimpan string yang memiliki panjang bervariasi. Digunakan untuk karakter dinamis seperti : nama, kota
+
+Untuk bisa terhubung ke dalam database dan menggunakan DBMS = jalankan dulu server databasenya
